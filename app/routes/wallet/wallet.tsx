@@ -46,7 +46,7 @@ export default function Wallet() {
 
   async function buscarSaldos(): Promise<void> {
     try {
-      const response = await axiosHttp.get("/wallet/saldo");
+      const response = await axiosHttp.get("/wallet");
       if (response.status === 200) {
         formatarDto(response.data);
       } else {
