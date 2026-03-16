@@ -40,10 +40,10 @@ export default function Header({
         }
       }
     }
-    setUser({
-      ...user,
+    setUser((prev) => ({
+      ...prev,
       nome: payload.nome,
-    });
+    }));
     buscarSaldo();
   }
 
@@ -51,10 +51,10 @@ export default function Header({
     try {
       const response = await axiosHttp.get("/wallet/saldo");
       if (response.status === 200) {
-        setUser({
-          ...user,
+        setUser((prev) => ({
+          ...prev,
           saldo: response.data.saldo,
-        });
+        }));
       } else {
         console.error(response.data);
         return Promise.reject(response);
