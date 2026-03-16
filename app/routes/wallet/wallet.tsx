@@ -10,6 +10,7 @@ import Saque from "./components/saque/Saque";
 import Movimentacao from "./components/movimentacao/Movimentacao";
 import Transacao from "./components/transacao/Transacao";
 import { jwtDecode } from "jwt-decode";
+import axiosHttp from "~/shared/utils/interceptor";
 
 export default function Wallet() {
   const [trigger, setTrigger] = useState(false);
@@ -43,25 +44,18 @@ export default function Wallet() {
     }
   };
 
-  function buscarSaldos(): void {
-    fetch("http://localhost:3000/wallet", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-      },
-    })
-      .then((response) => {
-        if (response.status === 200) return response.json();
-        else {
-          console.error(response.json());
-          return Promise.reject(response);
-        }
-      })
-      .then((data: WalletDto) => {
-        formatarDto(data);
-      });
-
+  async function buscarSaldos(): Promise<void> {
+    try {
+      const response = await axiosHttp.get("/wallet/saldo");
+      if (response.status === 200) {
+        formatarDto(response.data);
+      } else {
+        console.error(response.data);
+        return Promise.reject(response);
+      }
+    } catch (e) {
+      console.error(e);
+    }
     setTrigger(!trigger);
   }
 

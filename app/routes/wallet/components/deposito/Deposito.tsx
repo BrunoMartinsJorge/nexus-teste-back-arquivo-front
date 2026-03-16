@@ -59,24 +59,19 @@ export default function Deposito({ onChange }: DepositoProps) {
     buscarUsuarios();
   }, []);
 
-  function enviarDeposito(): void {
-    fetch("http://localhost:3000/webhook/deposit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-      },
-      body: JSON.stringify(deposito),
-    }).then(async (response) => {
+  async function enviarDeposito(): Promise<void> {
+    try {
+      const response = await axiosHttp.get("/webhook/deposit");
       if (response.status === 201) {
         onChange?.();
       } else {
-        const data = await response.json();
-        alert(data.message || "Ocorreu um erro ao gerar o deposito!");
-        console.error(data);
+        console.error(response.data);
+        alert(response.data.message || "Ocorreu um erro ao gerar o deposito!");
         return Promise.reject(response);
       }
-    });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (

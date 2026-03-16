@@ -39,8 +39,6 @@ export default function Header({
           return;
         }
       }
-      // window.location.href = "/login";
-      // return;
     }
     setUser({
       ...user,
@@ -49,18 +47,21 @@ export default function Header({
     buscarSaldo();
   }
 
-  function buscarSaldo(): void {
-    axiosHttp.get("/wallet/saldo").then((response) => {
+  async function buscarSaldo(): Promise<void> {
+    try {
+      const response = await axiosHttp.get("/wallet/saldo");
       if (response.status === 200) {
         setUser({
           ...user,
           saldo: response.data.saldo,
         });
       } else {
-        alert("Ocorreu um erro ao buscar o saldo!");
         console.error(response.data);
+        return Promise.reject(response);
       }
-    });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   function logout(): void {
