@@ -1,87 +1,121 @@
-# Welcome to React Router!
+# Front
 
-A modern, production-ready template for building full-stack React applications using React Router.
+---
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+# 🚀 Funcionalidades
 
-## Features
+- 🚀 Renderização no lado do servidor (Server-Side Rendering - SSR)
+- ⚡ Hot Module Replacement (HMR) para desenvolvimento rápido
+- 📦 Empacotamento e otimização de assets
+- 🔄 Carregamento de dados e mutações integradas
+- 🔒 Suporte nativo a **TypeScript**
+- 🎨 Estilização com **TailwindCSS**
+- 📖 Documentação oficial do React Router
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+Documentação:  
+https://reactrouter.com/
 
-## Getting Started
+---
 
-### Installation
+# 🧰 Tecnologias Utilizadas
 
-Install the dependencies:
+Este template utiliza as seguintes tecnologias:
+
+- React
+- React Router
+- TypeScript
+- TailwindCSS
+- Vite
+- Node.js
+
+---
+
+# ⚙️ Primeiros Passos
+
+## Instalação
+
+Instale as dependências do projeto:
 
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
+### Desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+A aplicação estara em: `http://localhost:5173`.
 
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+Estrutura do Projeto
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── 📁 .react-router
+│   └── 📁 types
+│       ├── 📁 app
+│       │   ├── 📁 +types
+│       │   │   └── 📄 root.ts
+│       │   └── 📁 routes
+│       │       ├── 📁 autenticacao
+│       │       │   └── 📁 +types
+│       │       │       └── 📄 page.ts
+│       │       └── 📁 wallet
+│       │           └── 📁 +types
+│       │               └── 📄 wallet.ts
+│       ├── 📄 +future.ts
+│       ├── 📄 +routes.ts
+│       └── 📄 +server-build.d.ts
+├── 📁 app
+│   ├── 📁 routes
+│   │   ├── 📁 autenticacao
+│   │   │   ├── 📁 components
+│   │   │   │   ├── 📄 Login.tsx
+│   │   │   │   └── 📄 Registro.tsx
+│   │   │   └── 📄 page.tsx
+│   │   └── 📁 wallet
+│   │       ├── 📁 components
+│   │       │   ├── 📁 deposito
+│   │       │   │   ├── 📁 models
+│   │       │   │   │   └── 📄 UsuarioDto.ts
+│   │       │   │   └── 📄 Deposito.tsx
+│   │       │   ├── 📁 movimentacao
+│   │       │   │   ├── 📁 models
+│   │       │   │   │   └── 📄 MovimentacaoDto.ts
+│   │       │   │   └── 📄 Movimentacao.tsx
+│   │       │   ├── 📁 saque
+│   │       │   │   └── 📄 Saque.tsx
+│   │       │   ├── 📁 swap
+│   │       │   │   ├── 📁 dto
+│   │       │   │   │   └── 📄 CotasaoDto.ts
+│   │       │   │   ├── 📁 form
+│   │       │   │   │   └── 📄 CotasaoForm.ts
+│   │       │   │   └── 📄 Swap.tsx
+│   │       │   ├── 📁 transacao
+│   │       │   │   ├── 📁 models
+│   │       │   │   │   └── 📄 TransacaoDto.ts
+│   │       │   │   └── 📄 Transacao.tsx
+│   │       │   └── 📄 Header.tsx
+│   │       ├── 📁 enums
+│   │       │   └── 📄 TypeBalanceEnum.ts
+│   │       ├── 📁 models
+│   │       │   └── 📄 WalletDto.ts
+│   │       └── 📄 wallet.tsx
+│   ├── 📁 shared
+│   │   └── 📁 utils
+│   │       └── 📄 interceptor.tsx
+│   ├── 🎨 app.css
+│   ├── 📄 root.tsx
+│   └── 📄 routes.ts
+├── 📁 public
+│   └── 📄 favicon.ico
+├── ⚙️ .dockerignore
+├── ⚙️ .gitignore
+├── 🐳 Dockerfile
+├── 📝 README.md
+├── ⚙️ package-lock.json
+├── ⚙️ package.json
+├── 📄 react-router.config.ts
+├── ⚙️ tsconfig.json
+└── 📄 vite.config.ts
 ```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
