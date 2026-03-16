@@ -106,25 +106,25 @@ export default function Transacao() {
                     >
                       <option
                         value="10"
-                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                       >
                         10
                       </option>
                       <option
                         value="25"
-                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                       >
                         25
                       </option>
                       <option
                         value="50"
-                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                       >
                         50
                       </option>
                       <option
                         value="100"
-                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                        className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                       >
                         100
                       </option>

@@ -111,19 +111,19 @@ export default function Deposito({ onChange }: DepositoProps) {
             >
               <option
                 value="BRL"
-                className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
               >
                 BRL
               </option>
               <option
                 value="BTC"
-                className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
               >
                 BTC
               </option>
               <option
                 value="ETH"
-                className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
               >
                 ETH
               </option>
@@ -145,7 +145,7 @@ export default function Deposito({ onChange }: DepositoProps) {
                   <option
                     key={u.id}
                     value={u.id}
-                    className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                    className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                   >
                     {u.nome} - ID: {u.id}
                   </option>

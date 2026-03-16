@@ -67,19 +67,19 @@ export default function Saque({ onChange }: SaqueProps) {
               >
                 <option
                   value="BRL"
-                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                 >
                   BRL
                 </option>
                 <option
                   value="BTC"
-                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                 >
                   BTC
                 </option>
                 <option
                   value="ETH"
-                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-black"
+                  className="border-2 border-gray-400 p-2 rounded flex-1 bg-white dark:bg-gray-900"
                 >
                   ETH
                 </option>
