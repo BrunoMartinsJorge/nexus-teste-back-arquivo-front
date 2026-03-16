@@ -114,17 +114,33 @@ export default function Wallet() {
     }
   };
 
-  function autenticado() {
+  async function autenticado() {
     const token = localStorage.getItem("access_token");
-    if (token === null || token === undefined) {
+    if (!token) {
       window.location.href = "/login";
       return;
     }
     const payload: any = jwtDecode(token);
-    const dataExpiracao = payload.exp * 1000;
-    if (dataExpiracao < Date.now()) {
-      window.location.href = "/login";
-      return;
+    if (payload.exp * 1000 < Date.now()) {
+      const refreshToken = localStorage.getItem("refresh_token");
+      if (!refreshToken) {
+        window.location.href = "/login";
+        return;
+      }
+      const payloadRefresh: any = jwtDecode(refreshToken);
+      if (payloadRefresh.exp * 1000 < Date.now()) {
+        window.location.href = "/login";
+        return;
+      }
+      try {
+        const response = await axiosHttp.post("/auth/refresh", {
+          refreshToken,
+        });
+        localStorage.setItem("access_token", response.data.access_token);
+      } catch {
+        window.location.href = "/login";
+        return;
+      }
     }
     buscarSaldos();
   }
