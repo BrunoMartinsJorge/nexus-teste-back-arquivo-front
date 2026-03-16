@@ -61,7 +61,7 @@ export default function Deposito({ onChange }: DepositoProps) {
 
   async function enviarDeposito(): Promise<void> {
     try {
-      const response = await axiosHttp.post("/webhook/deposit");
+      const response = await axiosHttp.post("/webhook/deposit", deposito);
       if (response.status === 201) {
         onChange?.();
       } else {
