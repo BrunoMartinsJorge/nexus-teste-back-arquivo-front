@@ -75,7 +75,7 @@ export default function Movimentacao() {
                   </td>
 
                   <td className="py-3 px-4">
-                    {movimentacao.saldoAnterio} Unidade(s)
+                    {movimentacao.saldoAnterior} Unidade(s)
                   </td>
 
                   <td className="py-3 px-4">

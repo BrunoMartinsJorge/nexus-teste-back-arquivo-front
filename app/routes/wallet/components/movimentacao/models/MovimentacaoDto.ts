@@ -11,7 +11,7 @@ export interface Movimentacao {
   tipo: string;
   token: string;
   valor: number;
-  saldoAnterio: number;
+  saldoAnterior: number;
   saldoNovo: number;
   dataHora: string;
 }
